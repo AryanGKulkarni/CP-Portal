@@ -6,14 +6,14 @@ export default function Rating() {
     <>
     <div className="container my-3">
         <div className="row">
-            <RatingCard title="CodeForces" text="Your Rating"/>
-            <RatingCard title="HackerRank" text="Your Rating"/>
-            <RatingCard title="HackerEarth" text="Your Rating"/>
-            <RatingCard title="CodeChef" text="Your Rating"/>
-            <RatingCard title="LeetCode" text="Your Rating"/>
-            <RatingCard title="GeeksForGeeks" text="Your Rating"/>
-            <RatingCard title="CodeWars" text="Your Rating"/>
-            <RatingCard title="TopCoder" text="Your Rating"/>
+            <RatingCard title="CodeForces" text="Ishaan Mittal" handle="ishaan"/>
+            <RatingCard title="HackerRank" text="Aryan Kulkarni" handle="AK2507"/>
+            <RatingCard title="HackerEarth" text="Sai Abhinav" handle="kssabhinav"/>
+            <RatingCard title="CodeChef" text="Monil Pitliya" handle="monil.pitliya2003"/>
+            <RatingCard title="LeetCode" text="Shubhneet Tiwari" handle="shubhtwr96"/>
+            <RatingCard title="GeeksForGeeks" text="Vinay Desai" handle="vinaydesai2003"/>
+            <RatingCard title="CodeWars" text="Harsh Soni" handle="HarshSoni1"/>
+            <RatingCard title="TopCoder" text="Purav Biyani" handle="avicii101"/>
         </div>
     </div>
     </>
