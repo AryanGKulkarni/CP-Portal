@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" style={{Color: 'red'}}>
         <div className="container-fluid">
             <a className="navbar-brand" href="/">CP-Portal</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@ export default function Navbar() {
                     <Link className="nav-link" to="/UpcomingContests">Upcoming Contests</Link>
                     </li>                    
                     <li className="nav-item">
-                    <a className="nav-link disabled">Disabled</a>
+                    <Link className="nav-link" to="/UserProfile">Profile</Link>
                     </li>
                 </ul>
                 <form className="d-flex" role="search">
