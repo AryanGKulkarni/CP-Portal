@@ -5,11 +5,11 @@ import Navbar from './components/Navbar';
 import Problemset from './components/Problemset';
 import Rating from './components/Rating';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import UpcomingContests from './components/UpcomingContests';
 
 const DefaultPage = () => {
   return (
-    <div>
-      <Navbar />
+    <div>      
       <Carousel />
       <Rating />
     </div>
@@ -17,11 +17,13 @@ const DefaultPage = () => {
 };
 
 function App() {
-  return (
+  return (    
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<DefaultPage />} />
         <Route path="/Problemset" element={<Problemset />} />
+        <Route path="/UpcomingContests" element={<UpcomingContests />} />
       </Routes>
     </Router>
   );
