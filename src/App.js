@@ -24,7 +24,7 @@ function App() {
         <Route path="/" element={<DefaultPage />} />
         <Route path="/Problemset" element={<Problemset />} />
         <Route path="/UpcomingContests" element={<UpcomingContests />} />
-        <Route path="/UserProfile" element={<UserProfile name="Aryan Kulkarni" handle="ishaan" />} />
+        <Route path="/UserProfile" element={<UserProfile name="Aryan Kulkarni" handle="AK2507" />} />
       </Routes>
     </Router>
   );

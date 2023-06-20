@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
 import Rating from './Rating';
+import RatingGraph from './RatingGraph';
 
 export default function UserProfile(props) {
     let API="https://codeforces.com/api/user.status?handle="+`${props.handle}`
@@ -42,6 +43,9 @@ export default function UserProfile(props) {
                     <td>{count}</td>
                 </tr>
             </table>
+        </div>
+        <div className="my-3">
+            <RatingGraph/>
         </div>
     </>
   )
