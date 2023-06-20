@@ -45,7 +45,7 @@ export default function UserProfile(props) {
             </table>
         </div>
         <div className="my-3">
-            <RatingGraph/>
+            <RatingGraph handle={props.handle}/>
         </div>
     </>
   )

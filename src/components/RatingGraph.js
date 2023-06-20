@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const RatingGraph = () => {
+const RatingGraph = (props) => {
   const [ratingData, setRatingData] = useState(null);
+  let API="https://codeforces.com/api/user.rating?handle="+`${props.handle}`
 
   useEffect(() => {
     const fetchRatingData = async () => {
       try {
-        const response = await fetch('https://codeforces.com/api/user.rating?handle=AK2507');
+        const response = await fetch(API);
         const data = await response.json();
         setRatingData(data);
       } catch (error) {
