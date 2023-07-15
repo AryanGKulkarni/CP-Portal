@@ -7,6 +7,8 @@ import Problemset from './components/Problemset';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UpcomingContests from './components/UpcomingContests';
 import UserProfile from './components/UserProfile';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 const DefaultPage = () => {
   return (
@@ -22,6 +24,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<DefaultPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/Problemset" element={<Problemset />} />
         <Route path="/UpcomingContests" element={<UpcomingContests />} />
         <Route path="/UserProfile" element={<UserProfile name="Aryan Kulkarni" handle="AK2507" />} />
