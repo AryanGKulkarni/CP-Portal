@@ -19,12 +19,14 @@ const Signup = (props) => {
       if(json.sucess){
           console.log(json)
           localStorage.setItem('token', json.authtoken)
+          localStorage.setItem('handle', json.handle)
+          localStorage.setItem('name', json.name)
           navigate("/");
-          props.showAlert("Account created Sucessfully", "success");
+          // props.showAlert("Account created Sucessfully", "success");
       }
-      else{
-        props.showAlert("User with this email already exists", "danger");
-      }
+      // else{
+      //   props.showAlert("User with this email already exists", "danger");
+      // }
 
   }
 

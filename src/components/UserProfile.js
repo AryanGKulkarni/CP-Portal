@@ -3,12 +3,16 @@ import { useEffect } from 'react';
 import { useState } from 'react'
 import Rating from './Rating';
 import RatingGraph from './RatingGraph';
+import {useNavigate} from 'react-router-dom';
 
 export default function UserProfile(props) {
     let API="https://codeforces.com/api/user.status?handle="+`${props.handle}`
     const [submissions, setSubmissions] = useState([]);
-
+    let navigate = useNavigate();
     useEffect(() => {
+        if(!localStorage.getItem('token')){
+            navigate("/login")
+        }
         const fetchData = async () => {
         try {
             const response = await fetch(API);

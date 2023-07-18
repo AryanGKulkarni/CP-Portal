@@ -44,7 +44,8 @@ router.post('/createuser', [
     }
     const authToken = jwt.sign(data, JWT_SECRET);
     sucess=true;
-    res.json({sucess, authToken});    
+    const handle=user.handle;
+    res.json({sucess, authToken, handle});    
 })
 
 // ROUTE2 Authenticating a User using: POST "/api/auth/login". No login required
@@ -77,7 +78,9 @@ router.post('/login', [
         }
         const authToken = jwt.sign(data, JWT_SECRET);
         sucess=true;
-        res.json({sucess, authToken});
+        const handle=user.handle;
+        const name=user.name;
+        res.json({sucess, authToken, handle, name});
 
 
     } catch (error) {
