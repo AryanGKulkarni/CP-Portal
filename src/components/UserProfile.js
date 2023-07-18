@@ -28,7 +28,7 @@ export default function UserProfile(props) {
   return (
     <>
         <h2>{props.name}</h2>
-        <Rating/>
+        <Rating name={props.name} handle={props.handle}/>
         <h3>Solved Counts</h3>
         <div class="table-responsive my-3">
             <table class="table">
