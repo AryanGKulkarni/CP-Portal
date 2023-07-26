@@ -17,7 +17,7 @@ const DefaultPage = () => {
     </div>
   );
 };
-
+//Our aim is to make the code as clean as possible
 function App() {
   return (    
     <Router>
@@ -25,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<DefaultPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup />} /> 
         <Route path="/Problemset" element={<Problemset />} />
         <Route path="/UpcomingContests" element={<UpcomingContests />} />
         <Route path="/UserProfile" element={<UserProfile name={localStorage.getItem('name')} handle={localStorage.getItem('handle')} />} />
