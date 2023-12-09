@@ -48,7 +48,6 @@ export default function Problemset() {
             {/* ::Name */}
             <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Index</th>
             <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Name</th>
-            <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Tags</th>
           </tr>
         </thead>
 
@@ -59,8 +58,13 @@ export default function Problemset() {
             <tr key={problem.index} className={`${index % 2 === 0 ? "bg-gray-700" : "bg-gray-800"} whitespace-nowrap`}>
               {/* ::User Name */}
               <td className="py-3 px-4 text-base text-gray-200 font-semibold">{problem.index}</td>
-              <td className="py-3 px-4 text-base text-gray-200 font-semibold"><a href={`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`} target='_blank'>{problem.name}</a></td>
-              <td className="py-3 px-4 text-base text-gray-200 font-semibold">{problem.tags.join(", ")}</td>
+              <td className="py-3 px-4 text-base text-gray-200 font-semibold">{problem.name}</td>
+              <td className="py-3 px-4 flex justify-around items-center space-x-6 text-base text-gray-700 font-medium">
+                {/* :::edit button */}
+                <a href={`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`} target='_blank' className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500">Bookmark</a>
+                {/* :::delete button */}
+                <a href={`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`} target='_blank' className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500">Solve</a>
+              </td>
             </tr>
           ))
           }

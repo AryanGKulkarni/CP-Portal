@@ -10,20 +10,20 @@ import UserProfile from './components/UserProfile';
 import Login from './components/Login';
 import Signup from './components/Signup';
 
-const DefaultPage = () => {
-  return (
-    <div>      
-      <Carousel />
-    </div>
-  );
-};
+// const DefaultPage = () => {
+//   return (
+//     <div>      
+//       <Carousel />
+//     </div>
+//   );
+// };
 //Our aim is to make the code as clean as possible
 function App() {
   return (    
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Problemset />} />
+        <Route path="/" element={<UserProfile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} /> 
         <Route path="/Problemset" element={<Problemset />} />
