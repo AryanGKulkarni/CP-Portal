@@ -14,6 +14,20 @@ export default function Problemset() {
     }
   };
 
+  const addBookmark = async (data)=>{
+
+    const response = await fetch(`http://localhost:5000/api/bookmark/addbookmark`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem('token')    
+      },
+      body: JSON.stringify(data),
+    });
+    const bm = await response.json();
+    console.log(bm)          
+  }
+
   useEffect(() => {
     fetchAPIData(API);
   }, []);
@@ -61,7 +75,7 @@ export default function Problemset() {
               <td className="py-3 px-4 text-base text-gray-200 font-semibold">{problem.name}</td>
               <td className="py-3 px-4 flex justify-around items-center space-x-6 text-base text-gray-700 font-medium">
                 {/* :::edit button */}
-                <a href={`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`} target='_blank' className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500">Bookmark</a>
+                <a onClick={()=>addBookmark(problem)} className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500 	cursor-pointer">Bookmark</a>
                 {/* :::delete button */}
                 <a href={`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`} target='_blank' className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500">Solve</a>
               </td>
