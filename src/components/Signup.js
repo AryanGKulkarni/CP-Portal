@@ -18,7 +18,7 @@ const Signup = (props) => {
       const json = await response.json();
       if(json.sucess){
           console.log(json)
-          localStorage.setItem('token', json.authtoken)
+          localStorage.setItem('token', json.authToken)
           localStorage.setItem('handle', json.handle)
           localStorage.setItem('name', json.name)
           navigate("/");
