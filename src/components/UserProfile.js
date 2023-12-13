@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Rating from './Rating';
 import RatingGraph from './RatingGraph';
 import {useNavigate} from 'react-router-dom';
+import Bookmark from './Bookmark';
 
 export default function UserProfile(props) {
     let API="https://codeforces.com/api/user.status?handle="+`${props.handle}`
@@ -47,6 +48,9 @@ export default function UserProfile(props) {
                     <td>{count}</td>
                 </tr>
             </table>
+        </div>
+        <div className="my-3">
+            <Bookmark/>
         </div>
         <div className="my-3">
             <RatingGraph handle={props.handle}/>

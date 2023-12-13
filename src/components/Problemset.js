@@ -77,7 +77,7 @@ export default function Problemset() {
                 {/* :::edit button */}
                 <a onClick={()=>addBookmark(problem)} className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500 	cursor-pointer">Bookmark</a>
                 {/* :::delete button */}
-                <a href={`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`} target='_blank' className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500">Solve</a>
+                <a href={`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`} target='_blank' className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500" rel="noreferrer">Solve</a>
               </td>
             </tr>
           ))

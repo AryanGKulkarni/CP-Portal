@@ -34,6 +34,16 @@ router.post('/addbookmark', fetchuser ,[
             return res.status(400).json({errors: errors.array()});
         }
 
+        const existingBookmark = await Bookmark.findOne({
+            contestId,
+            index,
+            user: req.user.id
+        });
+
+        if (existingBookmark) {
+            return res.status(400).json({ errors: [{ msg: 'Bookmark already exists' }] });
+        }
+
         const bookmark= new Bookmark({
             contestId,index,name,type,rating,tags,user: req.user.id
         })
