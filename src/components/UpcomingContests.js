@@ -57,7 +57,7 @@ const UpcomingContests = () => {
               <td className="py-3 px-4 text-base text-gray-200 font-semibold">{new Date(contest.startTimeSeconds * 1000).toLocaleTimeString()}</td>
               <td className="py-3 px-4 flex justify-around items-center space-x-6 text-base text-gray-700 font-medium">
                 {/* :::edit button */}
-                <a type="button" href="https://codeforces.com/contests" target="_blank" className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500">Enter</a>
+                <a type="button" href="https://codeforces.com/contests" target="_blank" rel='noreferrer' className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500">Enter</a>
               </td>
             </tr>
           ))

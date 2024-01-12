@@ -60,7 +60,7 @@ router.post('/addbookmark', fetchuser ,[
 //ROUTE 4: Delete an existing Bookmark using: DELETE "/api/bookmark/deletebookmark/id:". Login required
 router.delete('/deletebookmark/:id', fetchuser, async (req,res)=>{
     try {
-        const {contestId,index,name,type,rating,tags} = req.body;
+        // const {contestId,index,name,type,rating,tags} = req.body;
 
         let bookmark = await Bookmark.findById(req.params.id);
         if(!bookmark){

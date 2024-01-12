@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 export default function RatingCard(props) {   
     
-    let API = "https://codeforces.com/api/user.info?handles="+`${props.handle}`;
+    let API = `https://codeforces.com/api/user.info?handles=${props.handle}`;
     const [rating, setRating] = useState(0);
 
     const fetchAPIData = async(url)=>{
@@ -21,7 +21,7 @@ export default function RatingCard(props) {
 
     useEffect(()=>{
         fetchAPIData(API);
-    }, []);    
+    }, [API]);    
     
 
 

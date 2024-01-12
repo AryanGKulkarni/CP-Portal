@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 
 const RatingGraph = (props) => {
   const [ratingData, setRatingData] = useState(null);
-  let API="https://codeforces.com/api/user.rating?handle="+`${props.handle}`
+  let API=`https://codeforces.com/api/user.rating?handle=${props.handle}`
 
   useEffect(() => {
     const fetchRatingData = async () => {
@@ -17,7 +17,7 @@ const RatingGraph = (props) => {
     };
 
     fetchRatingData();
-  }, []);
+  }, [API]);
 
   if (!ratingData) {
     return <div>Loading...</div>;

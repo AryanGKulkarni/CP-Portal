@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Bookmark = () => {
     const Initial = []
@@ -15,7 +16,7 @@ const Bookmark = () => {
         },
       });
       const json = await response.json();
-      // console.log(json)
+      console.log(json)
       setProblems(json)         
     }
 
@@ -67,7 +68,7 @@ const Bookmark = () => {
                                 <td className="py-3 px-4 text-base text-gray-200 font-semibold">{problem.name}</td>
                                 <td className="py-3 px-4 flex justify-around items-center space-x-6 text-base text-gray-700 font-medium">
                                     {/* :::edit button */}
-                                    <a onClick={() => deleteProblem(problem._id)} className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500 cursor-pointer">Remove</a>
+                                    <Link onClick={() => deleteProblem(problem._id)} className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500 cursor-pointer">Remove</Link>
                                     {/* :::delete button */}
                                     <a href={`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`} target='_blank' className="text-sm text-indigo-400 font-semibold hover:underline hover:text-indigo-500" rel="noreferrer">Solve</a>
                                 </td>
