@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+// import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart} from '@mui/x-charts';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 const RatingGraph = (props) => {
   const [ratingData, setRatingData] = useState(null);
-  let API=`https://codeforces.com/api/user.rating?handle=${props.handle}`
+  let API = `https://codeforces.com/api/user.rating?handle=${props.handle}`
 
   useEffect(() => {
     const fetchRatingData = async () => {
@@ -23,25 +33,40 @@ const RatingGraph = (props) => {
     return <div>Loading...</div>;
   }
 
-  const data = ratingData.result.map((entry) => ({
-    time: new Date(entry.ratingUpdateTimeSeconds * 1000).toLocaleDateString(),
-    rating: entry.newRating,
-  }));
+  const last10Entries = ratingData.result.slice(-12);
+
+  const timeData = last10Entries ? last10Entries.map((entry) => new Date(entry.ratingUpdateTimeSeconds * 1000)) : [];
+  const ratingDataArray = last10Entries ? last10Entries.map((entry) => entry.newRating) : [];
+
+  console.log(timeData)
+  console.log(ratingDataArray)
 
   return (
-    <div>
-      <h1>Rating Graph</h1>
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="time" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="rating" stroke="#8884d8" dot={{ strokeWidth: 2, r: 6 }} activeDot={{ r: 8 }} />
-        </LineChart>
-      </ResponsiveContainer>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <React.Fragment>
+        <Card style={{ width: 600, backgroundColor: '#333', color: '#fff' }}>
+          <CardContent>
+            <LineChart
+              xAxis={[
+                {
+                  data: timeData,
+                  scaleType: 'time',
+                  tickFormatter: (tick) => new Date(tick).toLocaleDateString(),
+                },
+              ]}
+              series={[
+                {
+                  data: ratingDataArray,
+                  color: 'white',
+                },
+              ]}
+              width={500}
+              height={300}
+            />
+          </CardContent>
+        </Card>
+      </React.Fragment>
+    </ThemeProvider>
   );
 };
 
