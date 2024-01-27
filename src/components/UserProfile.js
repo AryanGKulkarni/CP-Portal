@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import Rating from './Rating';
+import RatingCard from './RatingCard'
 import RatingGraph from './RatingGraph';
 import { useNavigate } from 'react-router-dom';
 import Bookmark from './Bookmark';
@@ -26,36 +26,26 @@ export default function UserProfile(props) {
     };
 
     fetchData();
-  }, [API,navigate]);
+  }, [API, navigate]);
 
   const count = submissions.filter(submission => submission.verdict === 'OK').length;
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* <h2 className="text-3xl font-bold">{props.name}</h2>
-      <Rating name={props.name} handle={props.handle} />
-
-      <div className="my-8">
-        <h3 className="text-xl font-semibold">Solved Counts</h3>
-        <div className="overflow-x-auto">
-          <table className="table-auto border-collapse border border-gray-200 mt-4">
-            <thead className="bg-gray-800 text-gray-100">
-              <tr>
-                <th className="py-2 px-4">CodeChef</th>
-                <th className="py-2 px-4">CodeForces</th>
-                <th className="py-2 px-4">LeetCode</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="text-center">
-                <td className="py-2 px-4">{count}</td>
-                <td className="py-2 px-4">{count}</td>
-                <td className="py-2 px-4">{count}</td>
-              </tr>
-            </tbody>
-          </table>
+      <div style={{ display: 'flex' }}>
+        <div style={{ flex: '1', marginRight: '20px' }}>
+          <RatingCard title="CodeForces" handle={props.handle} name="Rating" />
         </div>
-      </div> */}
+        <div style={{ flex: '1', marginRight: '20px' }}>
+          <RatingCard title="CodeForces" handle={props.handle} name="Submissions" count={count} />
+        </div>
+        <div style={{ flex: '1', marginRight: '20px' }}>
+          <RatingCard title="CodeForces" handle={props.handle} name="Rating" />
+        </div>
+        <div style={{ flex: '1' }}>
+          <RatingCard title="CodeForces" handle={props.handle} name="Submissions" count={count} />
+        </div>
+      </div>
 
       <div className="my-8">
         <Bookmark />

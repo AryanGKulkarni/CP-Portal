@@ -1,44 +1,50 @@
 import React from 'react'
-import img1 from '../images/codeforces_logo.png'
 import { useEffect } from 'react';
 import { useState } from 'react'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
-export default function RatingCard(props) {   
-    
+export default function RatingCard(props) {
+
     let API = `https://codeforces.com/api/user.info?handles=${props.handle}`;
     const [rating, setRating] = useState(0);
 
-    const fetchAPIData = async(url)=>{
-        try{
+    const fetchAPIData = async (url) => {
+        try {
             const res = await fetch(url);
             const data = await res.json();
             console.log(data.result[0].rating);
             setRating(data.result[0].rating);
-        }catch(error){
+        } catch (error) {
             console.log(error);
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchAPIData(API);
-    }, [API]);    
-    
+    }, [API]);
 
 
-  return (
-    <div className="card text-bg-dark mx-3 my-3" style={{maxWidth: "18rem"}}>
-        <div className="row g-0">
-            <div className="col-md-4">
-                <img src={img1} className="img-fluid rounded-start" alt="..."/>
-            </div>
-            <div className="col-md-8">
-                <div className="card-body">
-                    <h5 className="card-title">{props.title}</h5>
-                    <p className="card-text">{rating}</p>
-                    <p className="card-text">{props.text}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-  )
+
+    return (
+        <React.Fragment>
+            <Card style={{ backgroundColor: '#778DA9', borderRadius: 15, width: 250, height: 100 }}>
+                <CardContent>
+                    {props.name === 'Rating' ? (
+                        <Typography variant="h5" component="div">
+                            {rating}
+                        </Typography>
+                    ) : (
+                        <Typography variant="h5" component="div">
+                            {props.count}
+                        </Typography>
+                    )}
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+                        {props.name}
+                    </Typography>
+                </CardContent>
+            </Card>
+        </React.Fragment>
+    )
 }
