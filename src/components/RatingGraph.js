@@ -44,7 +44,7 @@ const RatingGraph = (props) => {
   return (
     <ThemeProvider theme={darkTheme}>
       <React.Fragment>
-        <Card style={{ width: 600, backgroundColor: '#333', color: '#fff' }}>
+        <Card style={{ width: 600, backgroundColor: '#1B263B', borderRadius: 20}}>
           <CardContent>
             <LineChart
               xAxis={[
@@ -57,7 +57,7 @@ const RatingGraph = (props) => {
               series={[
                 {
                   data: ratingDataArray,
-                  color: 'white',
+                  color: '#E0E1DD',
                 },
               ]}
               width={500}

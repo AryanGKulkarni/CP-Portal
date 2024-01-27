@@ -32,7 +32,7 @@ export default function UserProfile(props) {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold">{props.name}</h2>
+      {/* <h2 className="text-3xl font-bold">{props.name}</h2>
       <Rating name={props.name} handle={props.handle} />
 
       <div className="my-8">
@@ -55,7 +55,7 @@ export default function UserProfile(props) {
             </tbody>
           </table>
         </div>
-      </div>
+      </div> */}
 
       <div className="my-8">
         <Bookmark />

@@ -1,6 +1,5 @@
 // import logo from './logo.svg';
 import './App.css';
-import Carousel from './components/Carousel';
 import Navbar from './components/Navbar';
 import Problemset from './components/Problemset';
 // import Rating from './components/Rating';
@@ -9,6 +8,7 @@ import UpcomingContests from './components/UpcomingContests';
 import UserProfile from './components/UserProfile';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import './style.css'
 
 // const DefaultPage = () => {
 //   return (
