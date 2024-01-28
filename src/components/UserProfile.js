@@ -7,6 +7,7 @@ import Bookmark from './Bookmark';
 import SubmissionCount from './SubmissionCount';
 import Streak from './Streak';
 import Chart from './Chart'
+import Unsolved from './Unsolved';
 
 export default function UserProfile(props) {
   let navigate = useNavigate();
@@ -50,8 +51,8 @@ export default function UserProfile(props) {
           <RatingGraph handle={props.handle} />
         </div>
 
-        <div className="my-4">
-          <Bookmark />
+        <div className="my-4" style={{ flex: 1, marginLeft: '60px' }}>
+          <Unsolved handle={props.handle} />
         </div>
       </div>
     </div>
