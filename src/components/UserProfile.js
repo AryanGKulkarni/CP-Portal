@@ -5,6 +5,7 @@ import RatingGraph from './RatingGraph';
 import { useNavigate } from 'react-router-dom';
 import Bookmark from './Bookmark';
 import SubmissionCount from './SubmissionCount';
+import Streak from './Streak';
 
 export default function UserProfile(props) {
   let navigate = useNavigate();
@@ -25,10 +26,10 @@ export default function UserProfile(props) {
           <RatingCard title="CodeForces" handle={props.handle} name="Max Rating"/>
         </div>
         <div style={{ flex: '1', marginRight: '20px' }}>
-          <RatingCard title="CodeForces" handle={props.handle} name="Rating" />
+          <Streak title="CodeForces" handle={props.handle} name="Current Streak" />
         </div>
         <div style={{ flex: '1' }}>
-          <RatingCard title="CodeForces" handle={props.handle} name="Submissions" />
+          <Streak title="CodeForces" handle={props.handle} name="Longest Streak" />
         </div>
         <div style={{ flex: '1' }}>
           <SubmissionCount title="CodeForces" handle={props.handle} name="Submissions" />

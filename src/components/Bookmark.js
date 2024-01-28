@@ -62,14 +62,14 @@ const Bookmark = () => {
     console.log(json)
 
 
-    console.log("Deleting Problem with id " + id)
+    // console.log("Deleting Problem with id " + id)
     const newProblems = problems.filter((problem) => { return problem._id !== id })
     setProblems(newProblems);
   }
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      console.log(localStorage.getItem('token'))
+      // console.log(localStorage.getItem('token'))
       getProblems();
     }
   }, [])

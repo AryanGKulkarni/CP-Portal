@@ -15,7 +15,7 @@ export default function RatingCard(props) {
         try {
             const res = await fetch(url);
             const data = await res.json();
-            console.log(data.result[0].rating);
+            // console.log(data.result[0].rating);
             setRating(data.result[0].rating);
             setMaxrating(data.result[0].maxRating);
         } catch (error) {

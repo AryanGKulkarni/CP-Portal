@@ -30,6 +30,7 @@ const SubmissionCount = (props) => {
     }, [API, navigate]);
 
     const count = submissions.filter(submission => submission.verdict === 'OK').length;
+    console.log(count)
     return (
         <React.Fragment>
             <Card style={{ backgroundColor: '#778DA9', borderRadius: 15, width: 250, height: 100 }}>

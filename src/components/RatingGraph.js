@@ -38,8 +38,8 @@ const RatingGraph = (props) => {
   const timeData = last10Entries ? last10Entries.map((entry) => new Date(entry.ratingUpdateTimeSeconds * 1000)) : [];
   const ratingDataArray = last10Entries ? last10Entries.map((entry) => entry.newRating) : [];
 
-  console.log(timeData)
-  console.log(ratingDataArray)
+  // console.log(timeData)
+  // console.log(ratingDataArray)
 
   return (
     <ThemeProvider theme={darkTheme}>
