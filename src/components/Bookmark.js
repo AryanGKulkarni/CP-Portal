@@ -80,7 +80,7 @@ const Bookmark = () => {
         <TableHead>
           <TableRow>
             <StyledTableCell>Index</StyledTableCell>
-            <StyledTableCell align="left">Calories</StyledTableCell>
+            <StyledTableCell align="left">Bookmarks</StyledTableCell>
             <StyledTableCell align="right"></StyledTableCell>
             <StyledTableCell align="right"></StyledTableCell>
           </TableRow>

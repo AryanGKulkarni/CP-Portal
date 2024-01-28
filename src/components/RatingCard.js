@@ -9,6 +9,7 @@ export default function RatingCard(props) {
 
     let API = `https://codeforces.com/api/user.info?handles=${props.handle}`;
     const [rating, setRating] = useState(0);
+    const [maxRating, setMaxrating] = useState(0);
 
     const fetchAPIData = async (url) => {
         try {
@@ -16,6 +17,7 @@ export default function RatingCard(props) {
             const data = await res.json();
             console.log(data.result[0].rating);
             setRating(data.result[0].rating);
+            setMaxrating(data.result[0].maxRating);
         } catch (error) {
             console.log(error);
         }
@@ -37,7 +39,7 @@ export default function RatingCard(props) {
                         </Typography>
                     ) : (
                         <Typography variant="h5" component="div">
-                            {props.count}
+                            {maxRating}
                         </Typography>
                     )}
                     <Typography sx={{ mb: 1.5 }} color="text.secondary" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
