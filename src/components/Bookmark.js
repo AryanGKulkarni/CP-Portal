@@ -75,8 +75,8 @@ const Bookmark = () => {
   }, [])
 
   return (
-    <TableContainer component={Paper} style={{ backgroundColor: '#415A77', maxWidth: 600, borderRadius: 20, maxHeight: 300, overflowY: 'hidden'}}>
-      <Table sx={{ maxWidth: 600 }} aria-label="customized table">
+    <TableContainer component={Paper} style={{ backgroundColor: '#415A77', width: '45vw', borderRadius: 20, maxHeight: 300, overflowY: 'hidden'}}>
+      <Table sx={{ width: '45vw' }} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Index</StyledTableCell>
