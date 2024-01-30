@@ -4,10 +4,10 @@ import { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { useGlobalContext } from '../context/Context';
 
 const Streak = (props) => {
-
-    let API = `https://codeforces.com/api/user.status?handle=${props.handle}`;
+    const { globalVariable } = useGlobalContext();
     let currentStreak = 0;
     let longestStreak = 0;
     const [cS, setcS] = useState(0);
@@ -17,8 +17,7 @@ const Streak = (props) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(API);
-                const apiResponse = await response.json();
+                const apiResponse = globalVariable;
 
                 if (apiResponse.status === "OK" && apiResponse.result) {
                     // Sort the result array based on creationTimeSeconds in ascending order
@@ -43,28 +42,18 @@ const Streak = (props) => {
                         return b.creationTimeSeconds - a.creationTimeSeconds;
                     });
 
-
-
-                    // Iterate through the sorted results
                     sortedResults.forEach((submission) => {
                         const submissionDate = new Date(submission.creationTimeSeconds * 1000);
-                        // setcurrentDate(new Date(submissionDate.getTime() + 24 * 60 * 60 * 1000))
-                        // console.log(submissionDate.toDateString(), " ", currentDate.toDateString())
-                        // Check if the submission is consecutive
                         if (currentDate.toDateString() === submissionDate.toDateString()) {
                             currentStreak++;
                             currentDate = new Date(submissionDate.getTime() - 24 * 60 * 60 * 1000);
                             return;
                         } else {
-                            // If not consecutive, update the current streak and reset it
                             longestStreak = Math.max(longestStreak, currentStreak);
                             currentStreak = 1;
                         }
-                        currentDate = new Date(submissionDate.getTime() - 24 * 60 * 60 * 1000)
-                        // Update the current date for the next iteration                        
+                        currentDate = new Date(submissionDate.getTime() - 24 * 60 * 60 * 1000)                   
                     });
-
-                    // Update longest streak after the loop ends
                     longestStreak = Math.max(longestStreak, currentStreak);
 
                     console.log("Current Streak:", currentStreak);
@@ -81,7 +70,7 @@ const Streak = (props) => {
         };
 
         fetchData();
-    }, [API, currentStreak, longestStreak, currentDate]);
+    }, [globalVariable, currentStreak, longestStreak, currentDate]);
 
 
     return (

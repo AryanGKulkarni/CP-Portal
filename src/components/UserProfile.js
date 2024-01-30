@@ -8,15 +8,30 @@ import SubmissionCount from './SubmissionCount';
 import Streak from './Streak';
 import Chart from './Chart'
 import Unsolved from './Unsolved';
+import { useGlobalContext } from '../context/Context';
 
 export default function UserProfile(props) {
+  let API = `https://codeforces.com/api/user.status?handle=${props.handle}`;
+  const { updateGlobalVariable } = useGlobalContext();
   let navigate = useNavigate();
 
   useEffect(() => {
     if (!localStorage.getItem('token')) {
       navigate("/login");
     }
-  }, [navigate]);
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(API);
+        const data = await response.json();
+        updateGlobalVariable(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [API, navigate, updateGlobalVariable]);
 
   return (
     <div className="container mx-auto px-4 my-4">

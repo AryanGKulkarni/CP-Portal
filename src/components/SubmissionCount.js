@@ -4,33 +4,20 @@ import { useState } from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
+import { useGlobalContext } from '../context/Context';
 
 const SubmissionCount = (props) => {
-    let API = `https://codeforces.com/api/user.status?handle=${props.handle}`;
+    const { globalVariable } = useGlobalContext();
     const [submissions, setSubmissions] = useState([]);
-    let navigate = useNavigate();
 
     useEffect(() => {
-        if (!localStorage.getItem('token')) {
-            navigate("/login");
-        }
-
-        const fetchData = async () => {
-            try {
-                const response = await fetch(API);
-                const data = await response.json();
-                setSubmissions(data.result);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
-        fetchData();
-    }, [API, navigate]);
-
-    const count = submissions.filter(submission => submission.verdict === 'OK').length;
-    console.log(count)
+        setSubmissions(globalVariable? globalVariable.result:globalVariable);
+    }, [globalVariable]);
+    let count=0;
+    if(submissions){
+        count = submissions.filter(submission => submission.verdict === 'OK').length;
+        console.log(count)
+    }
     return (
         <React.Fragment>
             <Card style={{ backgroundColor: '#778DA9', borderRadius: 15, width: 250, height: 100 }}>

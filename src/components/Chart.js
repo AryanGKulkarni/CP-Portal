@@ -4,17 +4,17 @@ import { useState } from 'react'
 import { PieChart } from '@mui/x-charts/PieChart';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import { useGlobalContext } from '../context/Context';
 
 const Chart = (props) => {
-    let API = `https://codeforces.com/api/user.status?handle=${props.handle}`;
+    const { globalVariable } = useGlobalContext();
     const [chartData, setChartData] = useState([]);
 
     useEffect(() => {
 
         const fetchData = async () => {
             try {
-                const response = await fetch(API);
-                const data = await response.json();
+                const data = globalVariable;
                 console.log(data);
 
                 if (data.status === 'OK' && data.result) {
@@ -45,7 +45,7 @@ const Chart = (props) => {
         };
 
         fetchData();
-    }, [API]);
+    }, [globalVariable]);
     return (
         <Card style={{ backgroundColor: '#415A77', borderRadius: 20, width: '45vw', height:300, color:'white' }}>
             <CardContent>

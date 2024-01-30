@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useGlobalContext } from '../context/Context';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
@@ -33,14 +33,12 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const Unsolved = (props) => {
-
-    let API = `https://codeforces.com/api/user.status?handle=${props.handle}`;
+    const { globalVariable } = useGlobalContext();
     const [problems, setProblems] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(API);
-                const apiResponse = await response.json();
+                const apiResponse = globalVariable;
 
                 if (apiResponse.status === "OK" && apiResponse.result) {
                     // Filter submissions with verdict "WRONG_ANSWER" and extract problems
@@ -64,7 +62,7 @@ const Unsolved = (props) => {
         };
 
         fetchData();
-    }, [API, problems]);
+    }, [globalVariable, problems]);
 
 
     return (
