@@ -55,7 +55,7 @@ const Chart = (props) => {
                             data: chartData,
                         },
                     ]}
-                    width={550}
+                    width={650}
                     height={275}
                 />
             </CardContent>

@@ -51,7 +51,6 @@ const Unsolved = (props) => {
 
                     // Set the filtered problems in the state
                     setProblems(wrongAnswerProblems);
-                    console.log("problems")
                 } else {
                     console.error("Error in API response");
                 }
@@ -78,7 +77,7 @@ const Unsolved = (props) => {
                 </TableHead>
                 <TableBody>
                     {problems.map((problem, index) => (
-                        <StyledTableRow key={problem.index}>
+                        <StyledTableRow key={problem.name}>
                             <StyledTableCell component="th" scope="row">
                                 {problem.index}
                             </StyledTableCell>

@@ -21,7 +21,7 @@ router.post('/createuser', [
     }
     let user = await User.findOne({email: req.body.email});
     if(user){
-        return res.status(400).json({error: "Sorry a user with this emai already exists"})
+        return res.status(400).json({error: "Sorry a user with this email already exists"})
     }
     const salt = await bcrypt.genSalt(10);
     const secPass = await bcrypt.hash(req.body.password,salt);
@@ -51,7 +51,7 @@ router.post('/createuser', [
 // ROUTE2 Authenticating a User using: POST "/api/auth/login". No login required
 router.post('/login', [
     body('email','Please enter a valid email').isEmail(),
-    body('password', 'password cannot be blak').exists(),
+    body('password', 'password cannot be blank').exists(),
 ] ,async (req,res)=>{
     let sucess = false; 
     const errors = validationResult(req);

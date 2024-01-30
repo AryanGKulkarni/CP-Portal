@@ -23,7 +23,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<UserProfile />} />
+        <Route path="/" element={<Problemset />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} /> 
         <Route path="/Problemset" element={<Problemset />} />
