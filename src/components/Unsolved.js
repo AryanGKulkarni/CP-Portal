@@ -61,7 +61,7 @@ const Unsolved = (props) => {
         };
 
         fetchData();
-    }, [globalVariable, problems]);
+    }, [globalVariable]);
 
 
     return (

@@ -56,7 +56,7 @@ const Signup = (props) => {
                   value={credentials.name}
                   type="text"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  style={{ backgroundColor: '#1B263B' }}
+                  // style={{ backgroundColor: '#1B263B' }}
                   placeholder="Enter Name"
                   onChange={onChange}
                 />
@@ -89,7 +89,7 @@ const Signup = (props) => {
                   value={credentials.email}
                   type="email"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  style={{ backgroundColor: '#1B263B' }}
+                  // style={{ backgroundColor: '#1B263B' }}
                   placeholder="Enter email"
                   onChange={onChange}
                 />
@@ -123,7 +123,7 @@ const Signup = (props) => {
                   value={credentials.password}
                   type="password"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  style={{ backgroundColor: '#1B263B' }}
+                  // style={{ backgroundColor: '#1B263B' }}
                   placeholder="Enter password"
                   onChange={onChange}
                 />
@@ -162,7 +162,7 @@ const Signup = (props) => {
                   value={credentials.cpassword}
                   type="password"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  style={{ backgroundColor: '#1B263B' }}
+                  // style={{ backgroundColor: '#1B263B' }}
                   placeholder="Confirm password"
                   onChange={onChange}
                 />
@@ -201,7 +201,7 @@ const Signup = (props) => {
                   value={credentials.handle}
                   type="text"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  style={{ backgroundColor: '#1B263B' }}
+                  // style={{ backgroundColor: '#1B263B' }}
                   placeholder="Like AK2507"
                   onChange={onChange}
                 />

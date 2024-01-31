@@ -52,7 +52,7 @@ const Login = (props) => {
                                     value={credentials.email}
                                     type="email"
                                     className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                                    style={{backgroundColor:'#1B263B'}}
+                                    // style={{backgroundColor:'#1B263B'}}
                                     placeholder="Enter email"
                                     onChange={onChange}
                                 />
@@ -86,7 +86,7 @@ const Login = (props) => {
                                     value={credentials.password}
                                     type="password"
                                     className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                                    style={{backgroundColor:'#1B263B'}}
+                                    // style={{backgroundColor:'#1B263B'}}
                                     placeholder="Enter password"
                                     onChange={onChange}
                                 />
