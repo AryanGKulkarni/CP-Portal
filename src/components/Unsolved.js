@@ -88,7 +88,7 @@ const Unsolved = (props) => {
     return (
         <div>
 
-            <TableContainer component={Paper} style={{ backgroundColor: '#415A77', width: '45vw', height: 300, borderRadius: 20, overflowY: 'hidden' }} onClick={handleOpen}>
+            <TableContainer component={Paper} style={{ backgroundColor: '#415A77', width: '45vw', height: 300, borderRadius: 20, overflowY: 'hidden', cursor: 'pointer' }} onClick={handleOpen}>
                 <Table sx={{ width: '45vw' }} aria-label="customized table">
                     <TableHead>
                         <TableRow>

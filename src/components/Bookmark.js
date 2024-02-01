@@ -20,7 +20,7 @@ const style = {
   width: '100%',  // Adjust the width as needed
   maxHeight: '70%',  // Adjust the height as needed
   overflowY: 'auto',
-  borderTopLeftRadius: 30,
+  borderTopLeftRadius: 30,  
   // borderTopRightRadius: 30,
 };
 
@@ -96,7 +96,7 @@ const Bookmark = () => {
   return (
     <div>
 
-      <TableContainer component={Paper} style={{ backgroundColor: '#415A77', width: '45vw', borderRadius: 20, maxHeight: 300, overflowY: 'hidden' }} onClick={handleOpen}>
+      <TableContainer component={Paper} style={{ backgroundColor: '#415A77', width: '45vw', borderRadius: 20, maxHeight: 300, overflowY: 'hidden', cursor: 'pointer' }} onClick={handleOpen}>
         <Table sx={{ width: '45vw' }} aria-label="customized table">
           <TableHead>
             <TableRow>
