@@ -40,6 +40,7 @@ const UpcomingContests = () => {
             <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Type</th>
             <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Date</th>
             <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Time</th>
+            <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col"></th>
           </tr>
         </thead>
 

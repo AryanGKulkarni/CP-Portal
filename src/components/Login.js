@@ -21,12 +21,12 @@ const Login = (props) => {
             localStorage.setItem('token', json.authToken)
             localStorage.setItem('handle', json.handle)
             localStorage.setItem('name', json.name)
-            // props.showAlert("Logged In Sucessfully", "success");
+            // alert("Logged In Sucessfully", "success");
             navigate("/");
         }
-        // else{
-        //     props.showAlert("Invalid Credentials", "danger")
-        // }
+        else{
+            alert("Invalid Credentials", "danger")
+        }
 
     }
 

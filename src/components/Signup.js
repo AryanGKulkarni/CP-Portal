@@ -9,26 +9,29 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password, cpassword, handle } = credentials;
-    // console.log(credentials.name, )
-    const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name: name, email: email, password: password, handle: handle }),
-    });
-    const json = await response.json();
-    if (json.sucess) {
-      console.log(json)
-      localStorage.setItem('token', json.authToken)
-      localStorage.setItem('handle', json.handle)
-      localStorage.setItem('name', json.name)
-      navigate("/");
-      // props.showAlert("Account created Sucessfully", "success");
+    if (password === cpassword) {
+      const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name: name, email: email, password: password, handle: handle }),
+      });
+      const json = await response.json();
+      if (json.sucess) {
+        console.log(json)
+        localStorage.setItem('token', json.authToken)
+        localStorage.setItem('handle', json.handle)
+        localStorage.setItem('name', json.name)
+        navigate("/");
+      }
+      else {
+        alert("A User with this email already exists", "danger");
+      }
     }
-    // else{
-    //   props.showAlert("User with this email already exists", "danger");
-    // }
+    else{
+      alert("Passwords don't match", "danger")
+    }
 
   }
 
