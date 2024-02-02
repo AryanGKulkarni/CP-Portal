@@ -1,13 +1,18 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import Rating from './Rating';
+import { useEffect } from 'react';
+import RatingCard from './RatingCard'
 import RatingGraph from './RatingGraph';
 import { useNavigate } from 'react-router-dom';
 import Bookmark from './Bookmark';
+import SubmissionCount from './SubmissionCount';
+import Streak from './Streak';
+import Chart from './Chart'
+import Unsolved from './Unsolved';
+import { useGlobalContext } from '../context/Context';
 
 export default function UserProfile(props) {
   let API = `https://codeforces.com/api/user.status?handle=${props.handle}`;
-  const [submissions, setSubmissions] = useState([]);
+  const { updateGlobalVariable } = useGlobalContext();
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -19,50 +24,51 @@ export default function UserProfile(props) {
       try {
         const response = await fetch(API);
         const data = await response.json();
-        setSubmissions(data.result);
+        updateGlobalVariable(data);
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchData();
-  }, [API,navigate]);
-
-  const count = submissions.filter(submission => submission.verdict === 'OK').length;
+  }, [API, navigate, updateGlobalVariable]);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold">{props.name}</h2>
-      <Rating name={props.name} handle={props.handle} />
-
-      <div className="my-8">
-        <h3 className="text-xl font-semibold">Solved Counts</h3>
-        <div className="overflow-x-auto">
-          <table className="table-auto border-collapse border border-gray-200 mt-4">
-            <thead className="bg-gray-800 text-gray-100">
-              <tr>
-                <th className="py-2 px-4">CodeChef</th>
-                <th className="py-2 px-4">CodeForces</th>
-                <th className="py-2 px-4">LeetCode</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="text-center">
-                <td className="py-2 px-4">{count}</td>
-                <td className="py-2 px-4">{count}</td>
-                <td className="py-2 px-4">{count}</td>
-              </tr>
-            </tbody>
-          </table>
+    <div className="container mx-auto px-4 my-4">
+      <div style={{ display: 'flex' }}>
+        <div style={{ flex: '1', marginRight: '20px' }}>
+          <RatingCard title="CodeForces" handle={props.handle} name="Rating" />
+        </div>
+        <div style={{ flex: '1', marginRight: '20px' }}>
+          <RatingCard title="CodeForces" handle={props.handle} name="Max Rating" />
+        </div>
+        <div style={{ flex: '1', marginRight: '20px' }}>
+          <Streak title="CodeForces" handle={props.handle} name="Current Streak" />
+        </div>
+        <div style={{ flex: '1' }}>
+          <Streak title="CodeForces" handle={props.handle} name="Longest Streak" />
+        </div>
+        <div style={{ flex: '1' }}>
+          <SubmissionCount title="CodeForces" handle={props.handle} name="Submissions" />
         </div>
       </div>
 
-      <div className="my-8">
-        <Bookmark />
-      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+        <div className="my-4">
+          <Bookmark />
+        </div>
 
-      <div className="my-8">
-        <RatingGraph handle={props.handle} />
+        <div className="my-4" style={{ flex: 1, marginLeft: '60px' }}>
+          <Chart handle={props.handle} />
+        </div>
+
+        <div className="my-4">
+          <RatingGraph handle={props.handle} />
+        </div>
+
+        <div className="my-4" style={{ flex: 1, marginLeft: '60px' }}>
+          <Unsolved handle={props.handle} />
+        </div>
       </div>
     </div>
   );

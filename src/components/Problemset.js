@@ -34,26 +34,6 @@ export default function Problemset() {
   }, []);
 
   return (
-    // <div>
-    //   <table className="table">
-    //     <thead>
-    //       <tr>
-    //         <th scope="col">Index</th>
-    //         <th scope="col">Name</th>
-    //         <th scope="col">Tags</th>
-    //       </tr>
-    //     </thead>
-    //     <tbody>
-    //       {problems.map((problem, index) => (
-    //         <tr key={index}>
-    //           <td>{problem.index}</td>
-    //           <td><link href={`https://codeforces.com/problemset/problem/${problem.contestId}/${problem.index}`} target='_blank'>{problem.name}</link></td>
-    //           <td>{problem.tags.join(", ")}</td>
-    //         </tr>
-    //       ))}
-    //     </tbody>
-    //   </table>
-    // </div>
     <div className="mx-auto pb-8 w-full">
       <div className="overflow-x-auto">
         <table className="min-w-full rounded-md border border-gray-200">
@@ -70,7 +50,7 @@ export default function Problemset() {
           {/* :TABLE BODY */}
           <tbody>
             {problems.map((problem, index) => (
-              <tr key={problem.index} className={`${index % 2 === 0 ? "bg-gray-700" : "bg-gray-800"} whitespace-nowrap`}>
+              <tr key={problem.name} className={`${index % 2 === 0 ? "bg-gray-700" : "bg-gray-800"} whitespace-nowrap`}>
                 <td className="py-3 px-4 text-base text-gray-200 font-semibold">{problem.index}</td>
                 <td className="py-3 px-4 text-base text-gray-200 font-semibold">{problem.name}</td>
                 {/* <td className="py-3 px-4 text-base text-white font-semibold">{problem.tags.join(", ")}</td> */}
