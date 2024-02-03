@@ -4,7 +4,7 @@ var cors = require('cors')
 
 connectToMongo();
 const app = express()
-const port = 5000
+const port = 80
 
 
 app.use(cors())
@@ -17,6 +17,6 @@ app.get('/', (req, res) => {
   res.send('Hello Aryan')
 })
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`cp-portal app listening on http://localhost:${port}`)
 })
