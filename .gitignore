@@ -4,6 +4,7 @@
 node_modules
 local.pem
 local2.pem
+local4.pem
 /.pnp
 .pnp.js
 
