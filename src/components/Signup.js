@@ -10,7 +10,7 @@ const Signup = (props) => {
     e.preventDefault();
     const { name, email, password, cpassword, handle } = credentials;
     if (password === cpassword) {
-      const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
+      const response = await fetch(`http://13.126.167.199/api/auth/createuser`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

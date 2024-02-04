@@ -17,7 +17,7 @@ export default function Problemset() {
 
   const addBookmark = async (data) => {
 
-    const response = await fetch(`http://localhost:5000/api/bookmark/addbookmark`, {
+    const response = await fetch(`http://13.126.167.199/api/bookmark/addbookmark`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
