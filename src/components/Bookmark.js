@@ -56,7 +56,7 @@ const Bookmark = () => {
   // Get Notes
   const getProblems = async () => {
 
-    const response = await fetch(`http://13.126.167.199/api/bookmark/fetchallbookmarks`, {
+    const response = await fetch(`http://3.110.210.52/api/bookmark/fetchallbookmarks`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +70,7 @@ const Bookmark = () => {
 
   const deleteProblem = async (id) => {
 
-    const response = await fetch(`http://13.126.167.199/api/bookmark/deletebookmark/${id}`, {
+    const response = await fetch(`http://3.110.210.52/api/bookmark/deletebookmark/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
